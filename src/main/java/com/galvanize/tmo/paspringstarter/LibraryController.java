@@ -52,6 +52,8 @@ public class LibraryController {
     	{
     		booksInLibrary.removeAll(booksInLibrary);
     	}
+    	
+    	index.set(0);
     	return new ResponseEntity<Object>(HttpStatus.NO_CONTENT);
     }
 
