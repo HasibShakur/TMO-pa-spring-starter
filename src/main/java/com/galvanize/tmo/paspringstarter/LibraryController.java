@@ -27,7 +27,7 @@ public class LibraryController {
 	}
     
 	// Add a book to library using HTTP POST
-    @RequestMapping(value = "/api/books", method = RequestMethod.POST)
+    @RequestMapping(value = "api/books", method = RequestMethod.POST)
     public ResponseEntity<Book> addBookToLibrary(@RequestBody Book book)
     {
     	Book newBook = new Book(index.incrementAndGet(), book.getAuthor(), book.getTitle(), book.getYearPublished());
@@ -36,7 +36,7 @@ public class LibraryController {
     }
     
     // Get all the books from library sorted alphabetically
-    @RequestMapping("/api/books")
+    @RequestMapping("api/books")
     public List<Book> getBooksInLibrary()
     {
     	List<Book> books = getBooksInAlphabeticOrder();
@@ -45,7 +45,7 @@ public class LibraryController {
     }
     
     // Delete the books in library
-    @RequestMapping(value = "/api/books", method = RequestMethod.DELETE)
+    @RequestMapping(value = "api/books", method = RequestMethod.DELETE)
     public ResponseEntity<Object> deleteAllBooks()
     {
     	if(!booksInLibrary.isEmpty())
