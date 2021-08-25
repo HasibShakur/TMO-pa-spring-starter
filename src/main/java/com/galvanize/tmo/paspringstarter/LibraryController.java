@@ -32,7 +32,7 @@ public class LibraryController {
     {
     	Book newBook = new Book(index.incrementAndGet(), book.getAuthor(), book.getTitle(), book.getYearPublished());
     	booksInLibrary.add(newBook);
-    	return new ResponseEntity<Book>(newBook, HttpStatus.OK);
+    	return new ResponseEntity<Book>(newBook, HttpStatus.CREATED);
     }
     
     // Get all the books from library sorted alphabetically
@@ -63,7 +63,8 @@ public class LibraryController {
 			}
 		});
 		
-		return booksInLibrary;
+		List<Book> booksReturned = booksInLibrary;
+		return booksReturned;
 	}
 }
 
