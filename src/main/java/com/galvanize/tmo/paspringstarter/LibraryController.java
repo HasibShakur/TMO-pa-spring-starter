@@ -37,11 +37,11 @@ public class LibraryController {
     
     // Get all the books from library sorted alphabetically
     @RequestMapping("/api/books")
-    public List<Book> getBooksInLibrary()
+    public ResponseEntity<List<Book>> getBooksInLibrary()
     {
     	List<Book> books = getBooksInAlphabeticOrder();
     	
-    	return books;
+    	return new ResponseEntity<List<Book>>(books, HttpStatus.OK);
     }
     
     // Delete the books in library
