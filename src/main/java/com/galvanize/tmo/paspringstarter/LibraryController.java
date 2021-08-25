@@ -3,7 +3,9 @@ package com.galvanize.tmo.paspringstarter;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.concurrent.atomic.AtomicLong;
 
 import org.springframework.http.HttpStatus;
@@ -37,11 +39,13 @@ public class LibraryController {
     
     // Get all the books from library sorted alphabetically
     @RequestMapping("/api/books")
-    public ResponseEntity<Object> getBooksInLibrary()
+    public Map<String, Object> getBooksInLibrary()
     {
     	List<Book> books = getBooksInAlphabeticOrder();
+    	Map<String, Object> returnMap = new HashMap<>();
+    	returnMap.put("books", books);
     	
-    	return new ResponseEntity<Object>(books, HttpStatus.OK);
+    	return returnMap;
     }
     
     // Delete the books in library
